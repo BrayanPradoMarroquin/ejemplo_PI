@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-asistencia = []
+asistencias = []
 
 @app.route('/', methods=['GET'])
 def home():
@@ -13,12 +13,12 @@ def home():
 @app.route('/Asistencia', methods=['POST'])
 def asistencia():
     data = request.get_json()
-    asistencia.append(data)
+    asistencias.append(data)
     return jsonify({'message': 'Asistencia registrada'})
 
 @app.route('/Asistencia', methods=['GET'])
 def get_asistencia():
-    return jsonify(asistencia)
+    return jsonify(asistencias)
 
 if __name__ == '__main__':
     app.run(debug=True)
