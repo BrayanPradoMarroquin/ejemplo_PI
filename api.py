@@ -8,5 +8,11 @@ CORS(app)
 def home():
     return jsonify({'message': 'Hola Mundo, esto es un mensaje de prueba'})
 
+@app.route('/Asistencia', methods=['POST'])
+def asistencia():
+    data = request.get_json()
+    print(data)
+    return jsonify({'message': 'Asistencia registrada'})
+
 if __name__ == '__main__':
     app.run(debug=True)
